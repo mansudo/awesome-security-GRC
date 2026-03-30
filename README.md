@@ -44,6 +44,11 @@ Feel free to share your resources or add cooler emojis.
   - [Security GRC Podcasts](#security-grc-podcasts)
   - [Security GRC Episodes](#security-grc-episodes)
 - [:scroll: Certifications](#scroll-certifications)
+- [:computer: Endpoint Security & GRC — The Practitioner's Angle](#computer-endpoint-security--grc--the-practitioners-angle)
+  - [Policy Enforcement Tooling](#policy-enforcement-tooling)
+  - [Hardening Baselines & Benchmarks](#hardening-baselines--benchmarks)
+  - [Device Compliance as a Risk Signal](#device-compliance-as-a-risk-signal)
+  - [Real-World Resources](#real-world-resources)
 - [:triangular_ruler: The Knowledge Trifecta](#triangular_ruler-the-knowledge-trifecta)
   - [:floppy_disk: The Technical](#floppy_disk-the-technical)
   - [:lock_with_ink_pen: The Security](#lock_with_ink_pen-the-security)
@@ -326,6 +331,48 @@ Added to that, each country would have specific cybersecurity regulations and st
 # :scroll: Certifications
 
 Probably [the only resource you'll need](https://pauljerimy.com/security-certification-roadmap/) for certifications. Paul Jerimy has done an incredible job with input from lots of practitioners and experts in InfoSec. If one certification had to be mentioned, it would be the CISSP for obvious reasons (:heavy_dollar_sign::heavy_dollar_sign::heavy_dollar_sign:).
+
+---
+
+# :computer: Endpoint Security & GRC — The Practitioner's Angle
+
+> *Most GRC resources are written from the compliance side. This section is written from the enforcement side — by someone who built the tools GRC teams depend on.*
+
+Endpoint security is where GRC policy meets reality. A control is only as good as its enforcement. This section covers the tooling, frameworks, and real-world patterns that connect device-level enforcement to compliance reporting.
+
+## Policy Enforcement Tooling
+
+- **[Tanium Enforce](https://www.tanium.com/products/tanium-enforce/)** — Policy enforcement at scale across Windows, macOS, and Linux. Supports BitLocker, Defender, AppLocker, firewall rules, and CSP/LGPO. Purpose-built for enterprise environments managing 100K+ endpoints.
+- **[Microsoft Intune](https://learn.microsoft.com/en-us/mem/intune/)** — Cloud-native MDM/MAM for Windows, macOS, iOS, and Android. Deep integration with Azure AD, Conditional Access, and Defender for Endpoint.
+- **[Jamf Pro](https://www.jamf.com/products/jamf-pro/)** — The gold standard for Apple device management. Supports configuration profiles, compliance checks, and macOS security baselines.
+- **[Windows Configuration Service Provider (CSP)](https://learn.microsoft.com/en-us/windows/client-management/mdm/configuration-service-provider-overview)** — The native Windows mechanism for applying policy settings via MDM. Takes priority over Group Policy on modern Windows.
+
+## Hardening Baselines & Benchmarks
+
+- **[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)** — The industry standard for OS and application hardening. Free PDFs available. Start with Windows 10/11 and macOS benchmarks.
+- **[Microsoft Security Baselines](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-security-configuration-framework/windows-security-baselines)** — Microsoft's own recommended security configurations. Importable into Group Policy or Intune.
+- **[DISA STIGs](https://public.cyber.mil/stigs/)** — DoD hardening guides. Overkill for most commercial orgs but the gold standard for federal compliance.
+- **[NIST SP 800-70](https://csrc.nist.gov/publications/detail/sp/800-70/rev-4/final)** — National Checklist Program for IT Products. Ties benchmarks to NIST controls.
+
+## Device Compliance as a Risk Signal
+
+Endpoint compliance data is some of the richest risk signal available to a GRC program — if you know how to use it:
+
+- **Patch compliance %** by OS version, business unit, or criticality → maps directly to vulnerability risk scoring
+- **Encryption coverage** (BitLocker/FileVault) → satisfies data protection controls in SOC2, ISO 27001, HIPAA
+- **AV/EDR health** (Defender, CrowdStrike) → feeds into threat detection capability metrics
+- **Configuration drift** from hardening baseline → early warning of control failures before audit
+
+Most GRC tools treat endpoints as checkboxes. The practitioner reality: endpoint telemetry is continuous, real-time evidence of control effectiveness.
+
+## Real-World Resources
+
+- **[Tanium Enforce + Microsoft Defender Tamper Protection](https://help.tanium.com/bundle/TanEnforceMSDef/page/KA/TanEnforceMSDef/TanEnforceMSDef.htm)** — Technical guide on integrating Tanium policy enforcement with Defender tamper protection.
+- **[Attack Surface Reduction Rules Reference](https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-reference)** — Microsoft's full ASR rules catalog. Critical for hardening Windows endpoints beyond baseline Defender config.
+- **[Homelab Infrastructure Reference](https://github.com/mansudo/homelab-infrastructure)** — Real-world VLAN layout, Intune CSP policies, and UniFi network topology from a 50+ endpoint homelab.
+- **[Defender Hardening Playbook](https://github.com/mansudo/defender-hardening-playbook)** — CIS benchmark implementation, PowerShell audit scripts, and ASR rule configurations.
+
+---
 
 # :triangular_ruler: The Knowledge Trifecta
 
