@@ -224,7 +224,7 @@ Most GRC tools treat endpoints as checkboxes. The practitioner reality: this is 
 | CRISC | ISACA | Risk and control |
 | CISA | ISACA | Audit and assurance |
 | Security+ | CompTIA | Foundational practitioner |
-| JAMF 170 | Jamf | Apple MDM administration |
+
 
 ---
 
